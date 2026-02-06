@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chocolate Day 🍫</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="chocolate-bg">
+  <div class="day-card chocolate-card">
+
+    <h1>🍫 Chocolate Day</h1>
+    <p class="day-text">A little sweetness, just for you 💖</p>
+
+    <div class="choco-wrapper">
+
+      <!-- Outer wrapper -->
+      <img
+        src="wrapper-removebg-preview.png"
+        id="outerWrapper"
+        class="choco-layer"
+        onclick="tearWrapper()"
+      />
+
+      <!-- Golden foil -->
+      <img
+        src="foil-2-removebg-preview.png"
+        id="foilWrapper"
+        class="choco-layer hidden"
+        onclick="unwrapFoil()"
+      />
+
+      <!-- Chocolate -->
+      <img
+        src="chocolate-3-removebg-preview.png"
+        id="chocolateBar"
+        class="choco-layer hidden"
+      />
+
+    </div>
+
+    <p id="chocoMsg" class="response-text hidden">
+      Just like chocolate, you make my life sweeter every day 🍫💖
+    </p>
+
+    <button class="back-btn" onclick="goHome()">← Back</button>
+
+  </div>
+
+  <script>
+    function tearWrapper() {
+      const wrapper = document.getElementById("outerWrapper");
+      const foil = document.getElementById("foilWrapper");
+
+      wrapper.classList.add("tear");
+      setTimeout(() => {
+        wrapper.classList.add("hidden");
+        foil.classList.remove("hidden");
+      }, 600);
+    }
+
+    function unwrapFoil() {
+      const foil = document.getElementById("foilWrapper");
+      const chocolate = document.getElementById("chocolateBar");
+      const msg = document.getElementById("chocoMsg");
+
+      foil.classList.add("tear");
+      setTimeout(() => {
+        foil.classList.add("hidden");
+        chocolate.classList.remove("hidden");
+        msg.classList.remove("hidden");
+      }, 600);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Propose Day 💍</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="propose-bg">
+  <div class="day-card">
+    <h1>💍 Propose Day</h1>
+
+    <p class="big-text">
+      Will you be my partner for the rest of your life? ❤️
+    </p>
+
+    <div class="btn-group" id="btnArea">
+      <button class="cta-btn" id="yesBtn" onclick="accepted()">Yes ❤️</button>
+      <button class="no-btn" id="noBtn">No 🙈</button>
+    </div>
+
+<div id="response" class="response-text hidden">
+  <img
+    src="images/propose.gif"
+    alt="Love celebration"
+    class="yes-gif"
+  />
+  <p>🥹💖 YESSS! I’m yours forever 💍✨</p>
+</div>  </div>
+
+  <script>
+    const area = document.getElementById("btnArea");
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+
+    const REPEL_DISTANCE = 160; // how far NO moves each time
+    const TRIGGER_RADIUS = 160; // how close mouse can get
+
+    area.addEventListener("mousemove", (e) => {
+      const noRect = noBtn.getBoundingClientRect();
+      const areaRect = area.getBoundingClientRect();
+
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+
+      const btnX = noRect.left + noRect.width / 2;
+      const btnY = noRect.top + noRect.height / 2;
+
+      const dx = btnX - mouseX;
+      const dy = btnY - mouseY;
+      const distance = Math.hypot(dx, dy);
+
+      if (distance < TRIGGER_RADIUS) {
+        // normalize direction
+        const nx = dx / distance;
+        const ny = dy / distance;
+
+        let newLeft =
+          noBtn.offsetLeft + nx * REPEL_DISTANCE;
+        let newTop =
+          noBtn.offsetTop + ny * REPEL_DISTANCE;
+
+        // keep inside area
+        const maxX = areaRect.width - noRect.width;
+        const maxY = areaRect.height - noRect.height;
+
+        newLeft = Math.max(0, Math.min(newLeft, maxX));
+        newTop = Math.max(0, Math.min(newTop, maxY));
+
+        noBtn.style.left = newLeft + "px";
+        noBtn.style.top = newTop + "px";
+      }
+    });
+
+    function accepted() {
+      document.getElementById("response").classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>
