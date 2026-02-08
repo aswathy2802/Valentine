@@ -317,3 +317,51 @@ input, textarea {
 .hidden {
   display: none;
 }
+
+/* -------- TEDDY DAY -------- */
+.teddy-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* -------- PROMISE DAY -------- */
+.promise-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.day-text,
+.promise {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.53em;
+}
+.promise {
+  font-size: 1.35rem;
+  margin: 10px 0;
+  animation: fadeIn 0.6s ease;
+}
+/* -------- PROMISE DAY REVEAL BUTTON -------- */
+.reveal-btn {
+  position: static;        /* IMPORTANT: keep it in normal flow */
+  margin: 15px auto 20px;
+  display: inline-block;
+
+  background: white;
+  color: #ff4d6d;
+  padding: 12px 26px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: transform 0.3s;
+}
+
+.reveal-btn:hover {
+  transform: scale(1.05);
+}

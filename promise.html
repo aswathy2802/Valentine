@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Promise Day 🤞</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="promise-bg">
+
+  <div class="day-card">
+    <h1>Happy Promise Day 🤞</h1>
+
+    <!-- Reveal button with NEW CLASS -->
+    <button class="reveal-btn" id="revealBtn" onclick="revealPromise()">
+      Reveal Promise 🤍
+    </button>
+
+    <p class="day-text">
+      Today isn’t about perfect promises…<br>
+      it’s about real ones 🤍
+    </p>
+
+    <div class="promise-list">
+      <p class="promise hidden">🤞 I promise you that I'll be there for you at all times.</p>
+      <p class="promise hidden">🤞 I promise you that I won’t keep secrets from you.</p>
+      <p class="promise hidden">🤞 I promise to choose you — every single day.</p>
+      <p class="promise hidden">🤞 I promise to love you, endlessly 💕</p>
+    </div>
+  </div>
+
+  <script>
+    let index = 0;
+    const promises = document.querySelectorAll(".promise");
+    const revealBtn = document.getElementById("revealBtn");
+
+    function revealPromise() {
+      if (index < promises.length) {
+        promises[index].classList.remove("hidden");
+        index++;
+      }
+
+      // hide reveal button after last promise
+      if (index === promises.length) {
+        revealBtn.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>

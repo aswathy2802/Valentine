@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Teddy Day 🧸</title>
+
+  <!-- Fonts already used -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="teddy-bg">
+
+  <div class="day-card">
+    <h1>Happy Teddy Day 🧸</h1>
+
+    <img 
+      src="./images/teddy.gif" 
+      alt="Teddy Bear"
+      class="animated-img"
+      onclick="hugTeddy()"
+    > 
+  </div>
+
+  <script>
+    function hugTeddy() {
+      document.getElementById("hugText").classList.remove("hidden");
+    }
+  </script>
+
+</body>
+</html>
