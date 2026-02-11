@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>One Big Hug 🤍</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="hug-page">
+
+  <div class="container">
+
+    <h1 class="hug-text">
+      Come here Goutham… 🤍<br>
+      I just want to hug you forever.
+    </h1>
+
+    <!-- GIF Container -->
+     <div>
+    <img id="hugImage" src="/images/hug1.png" class="hug-gif">
+    </div>
+
+    <button class="hug-btn" onclick="startHug()">Hug Me</button>
+    <button class="back-btn" onclick="goHome()">⬅ Back</button>
+
+
+  </div>
+
+  <script>
+    function startHug() {
+      const hugImage = document.getElementById("hugImage");
+
+      // Replace preview with actual GIF
+      hugImage.src = "/images/hug-couple.gif";
+
+      // Floating hearts
+      for (let i = 0; i < 15; i++) {
+        let heart = document.createElement("div");
+        heart.className = "floating-heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 2 + 2) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 4000);
+      }
+    }
+  </script>
+
+</body>
+</html>

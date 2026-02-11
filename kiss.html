@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>A Kiss For You 💋</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="kiss-page">
+
+  <div class="kiss-container">
+    <h1 class="kiss-text">Come closer… 💕</h1>
+
+    <!-- Empty image at first -->
+    <img id="kissImage" class="kiss-gif" style="display:none;">
+
+    <button class="kiss-btn" onclick="startKiss()">Kiss Me 💋</button>
+  </div>
+
+  <script>
+    let kissInterval; // global so it keeps running
+
+  function startKiss() {
+    const kissImage = document.getElementById("kissImage");
+    const button = document.querySelector(".kiss-btn");
+
+    // Show and load GIF
+    kissImage.src = "/images/kiss.gif";
+    kissImage.style.display = "block";
+
+    // Hide button
+    button.style.display = "none";
+
+    // Start unlimited floating kisses
+    kissInterval = setInterval(createKiss, 300);
+
+    // Fade in effect
+    setTimeout(() => {
+      kissImage.style.opacity = "1";
+    }, 100);
+  }
+
+  function createKiss() {
+    let kiss = document.createElement("div");
+    kiss.className = "floating-kiss";
+    kiss.innerHTML = "💋";
+
+    kiss.style.left = Math.random() * 100 + "vw";
+    kiss.style.fontSize = (Math.random() * 20 + 20) + "px";
+    kiss.style.animationDuration = (Math.random() * 2 + 3) + "s";
+
+    document.body.appendChild(kiss);
+      kissImage.style.display = "block";
+setTimeout(() => {
+  kissImage.style.opacity = "1";
+}, 100);
+    }
+  </script>
+
+</body>
+</html>
